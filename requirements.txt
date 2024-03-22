@@ -1,0 +1,15 @@
+argcomplete==3.1.1
+certifi==2024.2.2
+charset-normalizer==3.3.2
+idna==3.6
+json-extract==1.1.2
+ldap3==2.9.1
+logging==0.4.9.6
+pyasn1==0.5.1
+PyYAML==6.0.1
+requests==2.31.0
+tomlkit==0.12.1
+urllib3==2.2.1
+xmltodict==0.13.0
+yq==3.2.2
+
