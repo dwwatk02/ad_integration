@@ -7,6 +7,8 @@ import json
 import csv
 import shutil
 import os
+from security import safe_requests
+
 #from extract import json_extract
 
 """
@@ -201,7 +203,7 @@ class ASoC:
             "Accept": "application/json",
             "Authorization": "Bearer "+self.auth_token
         }
-        resp = requests.get("https://cloud.appscan.com/api/V2/Account/TenantInfo", headers=headers)
+        resp = safe_requests.get("https://cloud.appscan.com/api/V2/Account/TenantInfo", headers=headers)
         return resp.status_code == 200
 
 
@@ -211,7 +213,7 @@ class ASoC:
             "Authorization": "Bearer "+self.auth_token
         }
 
-        resp = requests.get("https://cloud.appscan.com/api/V2/Users", headers=headers)
+        resp = safe_requests.get("https://cloud.appscan.com/api/V2/Users", headers=headers)
         
         if(resp.status_code == 200):
 
