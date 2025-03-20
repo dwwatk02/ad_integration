@@ -201,7 +201,7 @@ class ASoC:
             "Accept": "application/json",
             "Authorization": "Bearer "+self.auth_token
         }
-        resp = requests.get("https://cloud.appscan.com/api/V2/Account/TenantInfo", headers=headers)
+        resp = requests.get("https://cloud.appscan.com/api/V2/Account/TenantInfo", headers=headers, timeout=60)
         return resp.status_code == 200
 
 
@@ -211,7 +211,7 @@ class ASoC:
             "Authorization": "Bearer "+self.auth_token
         }
 
-        resp = requests.get("https://cloud.appscan.com/api/V2/Users", headers=headers)
+        resp = requests.get("https://cloud.appscan.com/api/V2/Users", headers=headers, timeout=60)
         
         if(resp.status_code == 200):
 
@@ -239,7 +239,7 @@ class ASoC:
         #asset_group_dict.append(asset_group_id)
         data["AssetGroupIds"] = asset_group_id
         data["RoleId"] = role_id
-        resp = requests.post("https://cloud.appscan.com/api/v4/Account/InviteUsers",headers=headers,json=data)
+        resp = requests.post("https://cloud.appscan.com/api/v4/Account/InviteUsers",headers=headers,json=data, timeout=60)
         if(resp.status_code==200):
             #print(email_list + " successfully added to ASoC")
             return True
